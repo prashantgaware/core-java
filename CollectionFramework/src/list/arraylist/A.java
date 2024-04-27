@@ -15,4 +15,21 @@ public class A {
         return "A(" + i + ", " + j + ")";
     }
 
+	public int getX() {
+		// TODO Auto-generated method stub
+		return i;
+	}
+
+	public int getY() {
+		return j;
+	}
+
+	public void setX(int i1) {
+		
+	}
+
+	public void setY(int j1) {
+		
+	}
+
 }
