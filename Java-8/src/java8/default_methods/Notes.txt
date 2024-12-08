@@ -1,0 +1,50 @@
+Default Methods:
+================
+
+	- introduced to provide backward compatibility so that 
+	existing interfaces can use the lambda expressions without 
+	implementing the methods in the implementation class
+	- can provide common behavior to all implementing classes 
+	without forcing them to define the method.
+	- class implementing the interface can override the default method if needed
+	ex.
+		class MyClass implements MyInterface {
+		    @Override
+		    public void myDefaultMethod() {
+		        System.out.println("Overridden default method.");
+		    }
+		}
+	
+	## How to resolve diamond problem (Multiple Inheritance) : 
+	----------------------------------------------------------
+	- If a class implements multiple interfaces that define default methods with the same signature, 
+	it must override the method to resolve the conflict.
+	ex.
+		
+		interface InterfaceA {
+		    default void myMethod() {
+		        System.out.println("InterfaceA method");
+		    }
+		}
+		
+		interface InterfaceB {
+		    default void myMethod() {
+		        System.out.println("InterfaceB method");
+		    }
+		}
+		
+		class MyClass implements InterfaceA, InterfaceB {
+		    @Override
+		    public void myMethod() {
+		        System.out.println("MyClass method");
+		    }
+		    
+		    OR
+		    
+		    @Override
+		    public void myMethod() {
+		    	InterfaceB.super.myMethod();
+		    }
+		    
+		}
+		
